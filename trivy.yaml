@@ -1,0 +1,6 @@
+quiet: true
+scan:
+  scanners:
+    - vuln
+    - config
+    - secret

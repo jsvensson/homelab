@@ -1,0 +1,17 @@
+pre-commit:
+  commands:
+    tf-fmt:
+      run: tofu fmt ./tofu
+      tags: tofu, style
+    tf-validate:
+      run: tofu validate
+      tags: tofu, audit
+    tflint:
+      run: tflint --chdir=tofu
+      tags: tofu, style
+
+pre-push:
+  commands:
+    trivy:
+      run: trivy fs ./
+      tags: audit
