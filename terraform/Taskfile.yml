@@ -1,0 +1,17 @@
+version: "3"
+
+tasks:
+  plan:
+    desc: Tofu plan
+    cmds:
+      - op run --env-file='env' -- tofu plan --out tf.plan
+
+  apply:
+    desc: Tofu apply
+    cmds:
+      - op run --env-file='env' -- tofu apply -parallelism=5 tf.plan
+
+  plan-import:
+    desc: Tofu import
+    cmds:
+      - op run --env-file='env' -- tofu plan --generate-config-out=generated.tf --out tf.plan
